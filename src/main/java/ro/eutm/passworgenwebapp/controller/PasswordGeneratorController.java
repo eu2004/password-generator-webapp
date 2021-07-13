@@ -22,17 +22,16 @@ public class PasswordGeneratorController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    @ApiOperation("""
-            generates a random password based on the given configuration. The minimum length of the password is 4.The maximum is 256.Example:{
-              "includeLowerCase": true,
-              "includeNumbers": true,
-              "includeSymbols": true,
-              "includeUpperCase": true,
-              "length": 16
-            }""")
+    @ApiOperation("generates a random password based on the given configuration. The minimum length of the password is 4.The maximum is 256.Example:{"
+            + "includeLowerCase: true,"
+            + "includeNumbers: true,"
+            + "includeSymbols: true,"
+            + "includeUpperCase: true,"
+            + "length: 16"
+            + "}")
     public String generate(@RequestHeader HttpHeaders headers, @RequestBody PasswordGeneratorConfig config) {
         if (Objects.isNull(config)) {
-            logger.error(String.format("RequestBody is null %s", config));
+            logger.error("RequestBody is null");
             headers.forEach((key, value) -> logger.info(String.format("Header '%s' = %s", key, value)));
             return "";
         }
