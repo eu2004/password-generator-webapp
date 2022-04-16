@@ -1,0 +1,26 @@
+
+
+java -Djasypt.encryptor.password=SuperS3ecr3etZ -jar /home/pi/apps/password-generator-webapp/password-generator-webapp-1.2-SNAPSHOT.jar &
+
+/d/jdk-11.0.11/bin/java -Djasypt.encryptor.password=SuperS3ecr3etZ -jar target/password-generator-webapp-1.2-SNAPSHOT.jar
+
+
+/d/jdk-11.0.11/bin/java -cp ~/.m2/repository/org/jasypt/jasypt/1.9.3/jasypt-1.9.3.jar  org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI password=SuperS3ecr3etZ algorithm=PBEWITHHMACSHA512ANDAES_256 ivGeneratorClassName=org.jasypt.iv.RandomIvGenerator input="pass-gen-web-pass..."
+
+----ENVIRONMENT-----------------
+
+Runtime: Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 11.0.11+9-LTS-194
+
+
+
+----ARGUMENTS-------------------
+
+input: pass-gen-web-pass...
+password: SuperS3ecr3etZ
+algorithm: PBEWithMD5AndDES
+
+
+
+----OUTPUT----------------------
+
+ESw/fX2SaAsX1EzeKSWV7Zas1wuOC/LWnc7vLxQaqHk=
