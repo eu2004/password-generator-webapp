@@ -2,6 +2,7 @@ package ro.eutm.passworgenwebapp.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -27,7 +28,7 @@ public class PasswordGeneratorController {
             + "includeSymbols: true,"
             + "includeUpperCase: true,"
             + "length: 16"
-            + "}")
+            + "}", security = @SecurityRequirement(name = "bearerAuth"))
     public String generate(@RequestHeader HttpHeaders headers, @RequestBody PasswordGeneratorConfig config) {
         if (Objects.isNull(config)) {
             logger.error("RequestBody is null");
