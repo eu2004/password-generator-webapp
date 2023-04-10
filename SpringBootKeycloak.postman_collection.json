@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "8d68f5ce-801e-44ef-a245-de4ab3727acd",
+		"name": "SpringBootKeycloak",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Acquire an access token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "login-app",
+							"type": "default"
+						},
+						{
+							"key": "username",
+							"value": "user1",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "default"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "default"
+						},
+						{
+							"key": "user_id",
+							"value": "b78f7206-5be5-454a-b64b-8ad178f7d39f",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/SpringBootKeycloak/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"SpringBootKeycloak",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "generate-password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICItSldJQ18zT0gtdGEtZ3N4NU5EVHlyRWJ3dDNUcWwzcGl4M2dPaHlWSlJNIn0.eyJleHAiOjE2ODExMTc1NTEsImlhdCI6MTY4MTExNzI1MSwianRpIjoiNjU5YWFkOTMtMmIzZS00ZjExLTgzMzQtMzQ0YTE0OTdhZmJkIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9TcHJpbmdCb290S2V5Y2xvYWsiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYjc4ZjcyMDYtNWJlNS00NTRhLWI2NGItOGFkMTc4ZjdkMzlmIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibG9naW4tYXBwIiwic2Vzc2lvbl9zdGF0ZSI6ImFiZDc4MjFjLWQ2ZTgtNDNiYS04MDJiLTU2MWNiMWU5MThiYyIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiLCJkZWZhdWx0LXJvbGVzLXNwcmluZ2Jvb3RrZXljbG9hayIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsibG9naW4tYXBwIjp7InJvbGVzIjpbInVzZXIiXX0sImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoicHJvZmlsZSBlbWFpbCIsInNpZCI6ImFiZDc4MjFjLWQ2ZTgtNDNiYS04MDJiLTU2MWNiMWU5MThiYyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwicHJlZmVycmVkX3VzZXJuYW1lIjoidXNlcjEiLCJnaXZlbl9uYW1lIjoiIiwiZmFtaWx5X25hbWUiOiIiLCJlbWFpbCI6InVzZXIxQGVtYWlsLmNvbSJ9.NYQphetIbf43olNaKrOgOx4WJpb_mkyBusghI4fK_LMyOyDWdrP1j6HnkSpSwsHPvxIz8ZZIOeD0MpQJBTXPfwk0g7wc3zzwJlWwtSEuhzekvY8uefUyY8uFm_1Mk85r6htgk5I-5XKepsU73fWBukQxBT1iyNZkJzfyx57Oy8xCyV17kPzBPWk5ny-dju5N4sGNXivh_opgAVmsnrY_eVBSl4YJQkKlddEmfqkK2iAGGbugCp7ksBnlA6d0VPRdITu0YxUUd1_2KI8KJ_YOIdSb84nZv_YeO642aeZhLOvrHtTvY-90HvXzxqz5tcOUljZQWchVb6a1BegpQgSt1A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"includeLowerCase\": true,\r\n  \"includeNumbers\": true,\r\n  \"includeSymbols\": true,\r\n  \"includeUpperCase\": true,\r\n  \"length\": 16\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:8090/password-generator",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"password-generator"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
