@@ -1,8 +1,7 @@
 package ro.eutm.passworgenwebapp.controller;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -22,7 +21,7 @@ public class PasswordGeneratorController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    @ApiOperation("generates a random password based on the given configuration. The minimum length of the password is 4.The maximum is 256.Example:{"
+    @Operation(summary = "generates a random password based on the given configuration. The minimum length of the password is 4.The maximum is 256.Example:{"
             + "includeLowerCase: true,"
             + "includeNumbers: true,"
             + "includeSymbols: true,"
@@ -56,10 +55,10 @@ public class PasswordGeneratorController {
 
     @Getter
     @Setter
-    @ApiModel
+    @Schema
     @ToString
     public static class PasswordGeneratorConfig {
-        @ApiModelProperty(position = 1, required = true, value = "16", example = "16")
+        @Schema(requiredMode = Schema.RequiredMode.REQUIRED, defaultValue = "16", example = "16")
         private int length = 16;
         private boolean includeLowerCase = true;
         private boolean includeUpperCase = true;
